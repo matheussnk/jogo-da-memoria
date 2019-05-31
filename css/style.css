@@ -1,0 +1,232 @@
+html {
+    box-sizing: border-box;
+  }
+  
+  *,
+  *::before,
+  *::after {
+    box-sizing: inherit;
+  }
+  
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    max-width: 100%;
+  }
+  
+  body {
+    background: url('https://livewallpaper.info/wp-content/uploads/2017/08/Super-Mario-Desktop-wallpaper-wp38010644.jpg');
+    font-family: 'Coda', cursive;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  header {
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px -40px;
+    padding: 0px 10px;
+  }
+  
+  h1 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+  }
+  
+  /*
+   * Styles for the deck of cards
+   */
+  
+  .deck {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+    justify-items: center;
+    align-items: center;
+    min-width: 33%;
+    max-height: 90%;
+    background-color: #ffffff;
+    padding: 32px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+    perspective: 800px;
+  }
+  
+  .card {
+    display: grid;
+    grid-template-areas: "overlap";
+    transform-style: preserve-3d;
+    transition: 1s all ease-in-out;
+  }
+  
+  .front {
+    background-color: #090909;
+  }
+  
+  .back {
+    background-color: bl#ffffff;
+    transform: rotateY(180deg);
+  }
+  
+  .front,
+  .back {
+    max-height: 180px;
+    max-width: 125px;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    grid-area: overlap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    backface-visibility: hidden;
+  }
+  
+  .flipped {
+    transform: rotateY(180deg);
+    transition: 1s all ease-in-out;
+    cursor: default;
+  }
+  
+  .matched {
+    cursor: default;
+  }
+  
+  /*
+   * Styles for the Score Panel
+   */
+  
+  .score-panel {
+    background-color: #ffffff;
+    text-align: left;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  .score-panel .stars {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin: 0 5px 0 0;
+  }
+  
+  .score-panel .stars li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 7px;
+  }
+  
+  .score-panel .reset {
+    float: right;
+    cursor: pointer;
+    margin-left: 7px;
+  }
+  
+  .moves {
+    margin-right: 5px;
+  }
+  
+  .timer {
+    width: 100%;
+    background-color: #ffffff;
+    margin: 0 0 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+  }
+  
+  /*
+   * Styles for the Modal
+   */
+  
+  .modal {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 35%;
+    height: 50%;
+    border-radius: 10px;
+    background-color: #f4f4f4;
+    margin: 125px auto;
+    padding: 20px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  }
+  
+  #modal-reset {
+    color: #ffffff;
+    background-color: green;
+    display: block;
+    min-height: 45px;
+    width: 200px;
+  }
+  
+  #modal-stars ul {
+    list-style: none;
+    display: inline;
+    white-space: nowrap;
+    margin-left: -15px;
+  }
+  
+  #modal-stars ul li {
+    display: inline;
+  }
+  
+  /* Media Queries */
+  
+  @media screen and (max-width: 768px) {
+    .deck {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(4, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .deck {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+    header h1 {
+      padding-left: 50px;
+    }
+  }
