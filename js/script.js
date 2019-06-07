@@ -105,7 +105,6 @@ const imgList = [
           <p>Você completou o jogo com <span>${totalClicks}</span> movimentos e o tempo de <span>${myStopWatch.textContent}</span> minutos</p><br>
           <div id='modal-stars'>Aqui esta o seu cupom : <ul>${starRating.innerHTML}</ul> 
           </div><br>
-          <p>x</p>
           <button id='modal-reset' type ="button" onclick="closeModal()">Fechar</button>
           </div>`;
           document.body.appendChild(modal);
